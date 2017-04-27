@@ -26,7 +26,8 @@ rails_command 'db:create'
 rails_command 'db:migrate'
 
 application do
-  <<~'EOS'
+  <<-EOS
+
     config.generators do |g|
       g.javascripts false
       g.stylesheets false
@@ -112,6 +113,8 @@ gsub_file 'config/environments/production.rb', comment_line_pattern, ''
 gsub_file 'spec/spec_helper.rb', comment_line_pattern, ''
 gsub_file 'spec/rails_helper.rb', comment_line_pattern, ''
 
-# git :init
-# git add: '.'
-# git commit: "-m 'first commit'"
+remove_file '.gitignore'
+run 'git ignore ruby,rails > .gitignore'
+git :init
+git add: '.'
+git commit: "-m 'first commit'"
