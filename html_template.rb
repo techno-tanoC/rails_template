@@ -1,5 +1,4 @@
 gsub_file 'Gemfile', /gem 'turbolinks'\n/, ''
-gsub_file 'Gemfile', /gem 'jquery-rails'\n/, ''
 
 gem 'slim-rails'
 
